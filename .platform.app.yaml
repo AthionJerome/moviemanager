@@ -30,15 +30,19 @@ disk: 256
 relationships:
     mysql: 'mysql:mysql'
 
-
 hooks:
     build: |
       set -e
+      composer install --prefer-dist --no-progress --no-interaction
+      yarn install
+      yarn encore production
     deploy: |
       set -e
+      bin/console cache:warmup
+      bin/console doctrine:migrations:migrate --no-interaction
 
 web:
   locations: 
     '/': 
-      root: "web"
+      root: "public"
       passthru: "/index.php"
