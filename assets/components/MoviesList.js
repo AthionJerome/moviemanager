@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 // Importation de la bibliothèque react-icons pour les icônes
 import { IconContext } from "react-icons";
-import { FaPlusCircle } from "react-icons/fa";
+import { FaPlusCircle, FaEye } from "react-icons/fa";
 import { CiEdit } from "react-icons/ci";
 import { MdDelete } from "react-icons/md";
 
@@ -105,9 +105,19 @@ function MoviesList() {
                         <div className="card-body">
                             <label>Description du film : </label>
                             <p>{movie.description}</p>
-                            <label>Date de sortie : </label><p>{movie.releaseDate}</p>
+                            <label>Date de sortie : </label>
+                            <p>{movie.releaseDate}</p>
                         </div>
                         <div className="card-footer">
+                            <Link to={`/show/${movie.id}`}>
+                                <button title="Voir le film">
+                                    <IconContext.Provider value={{ color: "grey", size: "20px" }}>
+                                        <div>
+                                            <FaEye />
+                                        </div>
+                                    </IconContext.Provider>
+                                </button>
+                            </Link>
                             <Link to={`/edit/${movie.id}`}>
                                 <button title="Modifier ce film">
                                     <IconContext.Provider value={{ color: "orange", size: "20px" }}>

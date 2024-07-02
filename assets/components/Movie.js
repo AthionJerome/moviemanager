@@ -1,4 +1,4 @@
-/*import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link, useParams } from "react-router-dom";
 import Layout from "./Layout"
 import axios from 'axios';
@@ -18,22 +18,16 @@ function Movie() {
   
     return (
         <Layout>
-           <div className="container">
-            <h2 className="text-center mt-5 mb-3">Détail du film</h2>
+            <div className="containerMovie">
+                <h2>Détail du film</h2>
+                <Link to="/"> Voir tous les films</Link>
                 <div className="card">
-                    <div className="card-header">
-                        <Link 
-                            className="btn btn-outline-info float-right"
-                            to="/"> Voir tous les films
-                        </Link>
-                    </div>
                     <div className="card-body">
-                        <b className="text-muted">Title:</b>
+                        <label>Titre : </label>
                         <p>{movie.title}</p>
-                        <b className="text-muted">Description:</b>
+                        <label>Description du film : </label>
                         <p>{movie.description}</p>
-                        <b className="text-muted">Date de sortie:</b>
-                        <p>{movie.releaseDate}</p>
+                        <label>Date de sortie : </label><p>{movie.releaseDate}</p>
                     </div>
                 </div>
             </div>
@@ -41,4 +35,4 @@ function Movie() {
     );
 }
   
-export default Movie;*/
+export default Movie;
